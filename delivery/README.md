@@ -10,10 +10,16 @@ python -m venv .venv
 ```
 .\.venv\Scripts\activate
 ```
-3. Install Flask
-```
-pip install flask
-```
+3. Install package
+    - Development
+    ```
+    pip install -e . ['dev']
+    ```
+    - Prod
+    ```
+    pip install delivery
+    ```
+    
 4. Setting environment variables
     - Linux
     ```
@@ -30,6 +36,7 @@ pip install flask
 flask run
 ```
 
+<br>
 ---
 
 ## Back-end (Flask)
