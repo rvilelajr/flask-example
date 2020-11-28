@@ -28,7 +28,7 @@ python -m venv .venv
     ```
     - Windows
     ```
-    $env:FLASK_APP = "app.py"
+    $env:FLASK_APP = "delivery/app.py"
     $env:FLASK_ENV = "development"
     ```
 5. Running server
