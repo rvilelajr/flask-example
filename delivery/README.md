@@ -36,6 +36,12 @@ python -m venv .venv
 flask run
 ```
 
+6. In case of changes on the database
+```
+flask db migrate
+flask db upgrade
+```
+
 <br>
 ---
 

@@ -1,8 +1,6 @@
 from flask import Flask
-from delivery.extensions import site
-from delivery.extensions import config
-from delivery.extensions import db
-from delivery.extensions import cli
+
+from delivery.extensions import admin, auth, cli, config, db, migrate, site
 
 
 def create_app():
@@ -11,6 +9,9 @@ def create_app():
     app = Flask(__name__)
     config.init_app(app)
     db.init_app(app)
+    auth.init_app(app)
+    admin.init_app(app)
+    migrate.init_app(app)
     cli.init_app(app)
     site.init_app(app)
     return app

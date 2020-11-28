@@ -3,14 +3,6 @@
 from delivery.extensions.db import db
 
 
-class User(db.Model):
-    __tablename__ = "user"
-    id = db.Column("id", db.Integer, primary_key=True)
-    email = db.Column("email", db.Unicode, unique=True)
-    password = db.Column("password", db.Unicode)
-    admin = db.Column("admin", db.Boolean)
-
-
 class Category(db.Model):
     __tablename__ = "category"
     id = db.Column("id", db.Integer, primary_key=True)
@@ -23,9 +15,7 @@ class Store(db.Model):
     id = db.Column("id", db.Integer, primary_key=True)
     name = db.Column("name", db.Unicode)
     user_id = db.Column("user_id", db.Integer, db.ForeignKey("user.id"))
-    category_id = db.Column(
-        "category_id", db.Integer, db.ForeignKey("category.id")
-    )
+    category_id = db.Column("category_id", db.Integer, db.ForeignKey("category.id"))
     active = db.Column("active", db.Boolean)
 
     user = db.relationship("User", foreign_keys=user_id)
@@ -51,9 +41,7 @@ class Order(db.Model):
     completed = db.Column("completed", db.Boolean)
     user_id = db.Column("user_id", db.Integer, db.ForeignKey("user.id"))
     store_id = db.Column("store_id", db.Integer, db.ForeignKey("store.id"))
-    address_id = db.Column(
-        "address_id", db.Integer, db.ForeignKey("address.id")
-    )
+    address_id = db.Column("address_id", db.Integer, db.ForeignKey("address.id"))
 
     user = db.relationship("User", foreign_keys=user_id)
     store = db.relationship("Store", foreign_keys=store_id)

@@ -133,3 +133,6 @@ dmypy.json
 
 # sqlite
 *.db
+
+# migrations
+migrations/
