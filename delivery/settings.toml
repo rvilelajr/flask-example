@@ -1,0 +1,21 @@
+[default]
+DEBUG = false
+FLASK_ADMIN_SWATCH = "cerulean"
+APP_NAME = "Delivery App"
+EXTENSIONS = [
+    "delivery.extensions.db:init_app",
+    "delivery.extensions.auth:init_app",
+    "delivery.extensions.admin:init_app",
+    "delivery.extensions.cli:init_app",
+    "delivery.extensions.site:init_app",
+]
+
+[development]
+DEBUG = true
+SQLALCHEMY_DATABASE_URI = "sqlite:///delivery.db"
+SQLALCHEMY_TRACK_MODIFICATIONS = false
+APP_NAME = "Delivery App (dev mode)"
+
+[production]
+SQLALCHEMY_TRACK_MODIFICATIONS = false
+SQLALCHEMY_DATABASE_URI = "mysql:///delivery.db"
