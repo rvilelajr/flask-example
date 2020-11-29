@@ -1,5 +1,6 @@
 import click
-from delivery.extensions.db import db, models
+from delivery.extensions.auth.controller import create_user
+from delivery.extensions.db import db
 
 
 def init_app(app):
@@ -9,12 +10,11 @@ def init_app(app):
         db.create_all()
 
     @app.cli.command()
+    @click.option("--name", "-n")
     @click.option("--email", "-e")
     @click.option("--password", "-p")
     @click.option("--admin", "-a", is_flag=True, default=False)
-    def add_user(email, password, admin):
+    def add_user(name, email, password, admin):
         """Add a new user"""
-        user = models.User(email=email, password=password, admin=admin)
-        db.session.add(user)
-        db.session.commit()
+        create_user(email, password, name)
         click.echo(f"User {email} has been created")

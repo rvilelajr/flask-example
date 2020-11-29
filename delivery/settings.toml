@@ -9,6 +9,7 @@ EXTENSIONS = [
     "delivery.extensions.cli:init_app",
     "delivery.extensions.site:init_app",
 ]
+UPLOAD_FOLDER = "uploads"
 
 [development]
 DEBUG = true
